@@ -1,0 +1,41 @@
+# Environment files with secrets
+.env
+.env.*
+.env.mcp
+.env.local
+
+# IDE
+.idea/
+.vscode/
+.vs/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build
+dist/
+build/
+bin/
+obj/
+
+# Snipe-IT (removed)
+snipe-it/
+
+# .NET
+*.user
+*.suo
+*.cache
+*.dll
+*.exe
+*.pdb

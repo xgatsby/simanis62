@@ -1,15 +1,72 @@
 {
   "mcpServers": {
+    "excel": {
+      "command": "uvx",
+      "args": [
+        "excel-mcp-server",
+        "stdio"
+      ],
+      "autoApprove": [],
+      "disabled": false
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "autoApprove": [
+        "sequentialthinking"
+      ]
+    },
     "filesystem": {
       "command": "npx",
       "args": [
         "-y",
         "@modelcontextprotocol/server-filesystem",
-        "D:\\MRH"
+        "."
       ],
       "autoApprove": [
-        "write_file"
+        "read_file",
+        "write_file",
+        "list_directory",
+        "read_text_file",
+        "list_allowed_directories",
+        "list_allowed_directories"
       ]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "autoApprove": [
+        "browser_navigate",
+        "browser_fill_form",
+        "browser_click",
+        "browser_snapshot",
+        "browser_press_key",
+        "browser_evaluate"
+      ]
+    },
+    "mysql": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mysql-mcp-server"
+      ],
+      "env": {
+        "MYSQL_HOST": "localhost",
+        "MYSQL_PORT": "3306",
+        "MYSQL_USER": "root",
+        "MYSQL_PASSWORD": "Babe1995@#$",
+        "MYSQL_DATABASE": "simanis62"
+      },
+      "autoApprove": [
+        "list_databases"
+      ],
+      "disabled": false
     },
     "github": {
       "command": "npx",
@@ -18,31 +75,12 @@
         "@modelcontextprotocol/server-github"
       ],
       "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "<ISI_TOKEN_GITHUB_ANDA>"
-      }
-    },
-    "maven-indexer": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "maven-indexer-mcp@latest"
-      ],
-      "disabled": true
-    },
-    "postgres": {
-      "command": "uvx",
-      "args": [
-        "postgres-mcp",
-        "--access-mode=unrestricted",
-        "postgresql://mrh_user:mrh_password_2024@localhost:5432/mrh_buscharter"
-      ],
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      },
       "autoApprove": [
-        "list_schemas",
-        "list_schemas",
-        "list_objects",
-        "execute_sql"
-      ],
-      "disabled": true
+        "search_repositories",
+        "get_file_contents"
+      ]
     },
     "core-memory": {
       "url": "https://app.getcore.me/api/v1/mcp?source=Kiro",
@@ -55,6 +93,39 @@
         "memory_ingest",
         "memory_search"
       ]
+    },
+    "drawio-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "drawio-mcp-server"
+      ],
+      "autoApprove": [],
+      "disabled": true
+    },
+    "uml-mcp": {
+      "command": "python",
+      "args": [
+        "D:/Programs/Kiro/uml-mcp/mcp_server.py",
+        "run"
+      ],
+      "env": {
+        "KROKI_SERVER": "https://kroki.io",
+        "PLANTUML_SERVER": "https://www.plantuml.com/plantuml",
+        "MCP_OUTPUT_DIR": "D:/Programs/Kiro/uml-output"
+      },
+      "autoApprove": [],
+      "disabled": false
+    },
+    "docker-mcp": {
+      "command": "uvx",
+      "args": [
+        "docker-mcp"
+      ],
+      "autoApprove": [
+        "list-containers"
+      ],
+      "disabled": false
     }
   }
 }
